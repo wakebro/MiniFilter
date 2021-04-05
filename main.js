@@ -1,4 +1,5 @@
 // Fetch the items from the JSON file
+// JSON 파일 불러오기
 function loadItems() {
   return fetch("./data/data.json") //
     .then((response) => response.json())
@@ -6,12 +7,14 @@ function loadItems() {
 }
 
 // Update the list with the given items
+// 데이터 붙여넣기
 function displayitem(items) {
   const container = document.querySelector(".items");
   container.innerHTML = items.map((item) => createHTMLString(item)).join("");
 }
 
 // Create HTML list item from the given data item
+// HTML에 붙여넣을 문법
 function createHTMLString(item) {
   return `
     <li class="item">
@@ -20,7 +23,7 @@ function createHTMLString(item) {
     </li>`;
 }
 
-//
+// 필터 버튼
 function setEventListeners(items) {
   const logo = document.querySelector(".logo");
   const buttons = document.querySelector(".buttons");
